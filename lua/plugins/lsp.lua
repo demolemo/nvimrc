@@ -27,6 +27,7 @@ return {
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'lua_ls',
+                'pylsp',
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -44,6 +45,26 @@ return {
                             Lua = {
                                 diagnostics = {
                                     globals = { 'vim', 'it', 'describe', 'before_each', 'after_each' },
+                                }
+                            }
+                        }
+                    }
+                end,
+                ['pylsp'] = function()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.pylsp.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            pylsp = {
+                                plugins = {
+                                    pycodestyle = { enabled = true },
+                                    flake8 = { enabled = true },
+                                    pylint = { enabled = false },
+                                    jedi_completion = { enabled = true },
+                                    jedi_hover = { enabled = true },
+                                    jedi_references = { enabled = true },
+                                    jedi_signature_help = { enabled = true },
+                                    jedi_symbols = { enabled = true },
                                 }
                             }
                         }
