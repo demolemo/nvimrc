@@ -43,3 +43,9 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- remap pane switching to crtl + [hjkl]
+vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { noremap = true, silent = true })
