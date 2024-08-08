@@ -31,3 +31,16 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
 
+-- Return to last edit position when opening files
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    local last_pos = vim.fn.line("'\"")
+    if last_pos > 0 and last_pos <= vim.fn.line("$") then
+      vim.cmd("normal! g`\"")
+    end
+  end,
+})
+
+-- always create a file in current directory
+vim.opt.autochdir = true
