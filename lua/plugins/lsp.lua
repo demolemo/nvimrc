@@ -57,9 +57,8 @@ return {
                         settings = {
                             pylsp = {
                                 plugins = {
-                                    pycodestyle = { enabled = true, maxLineLength = 120 },
-                                    -- maxLineLength option seems to not be working, overwrite with ignore
-                                    flake8 = { enabled = true, maxLineLength = 120},
+                                    pycodestyle = { enabled = false, maxLineLength = 120 },
+                                    flake8 = { enabled = false, maxLineLength = 120},
                                     pylint = { enabled = false },
                                     edi_completion = { nabled = true },
                                     jedi_hover = { enabled = true },
